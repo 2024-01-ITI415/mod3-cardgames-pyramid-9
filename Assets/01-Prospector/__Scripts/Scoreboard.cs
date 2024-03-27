@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Scoreboard : MonoBehaviour
 {
     public static Scoreboard S;
+     private static Scoreboard instance;
 
     [Header("Set in Inspector")]
     public GameObject prefabFloatingScore;
