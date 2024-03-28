@@ -13,6 +13,7 @@ public enum eFSState {
 public class FloatingScore : MonoBehaviour {
     [Header("Set Dynamically")]
     public eFSState state = eFSState.idle;
+
     [SerializeField]
     protected int _score = 0;
     public string scoreString;
@@ -33,6 +34,7 @@ public class FloatingScore : MonoBehaviour {
     public float timeStart = -1f;
     public float timeDuration = 1f;
     public string easingCurve = Easing.InOut;
+
     public GameObject reportFinishTo = null;
 
     private RectTransform rectTrans;
@@ -41,10 +43,12 @@ public class FloatingScore : MonoBehaviour {
     public void Init(List<Vector2> ePts, float eTimeS = 0, float eTimeD = 1) {
         rectTrans = GetComponent<RectTransform>();
         rectTrans.anchoredPosition = Vector2.zero;
+        
         txt = GetComponent<Text>();
         txt.enabled = false; // Hide the score initially
 
         bezierPts = new List<Vector2>(ePts);
+        
         if (ePts.Count == 1) {
             transform.position = ePts[0];
             return;
@@ -53,6 +57,7 @@ public class FloatingScore : MonoBehaviour {
         if (eTimeS == 0) eTimeS = Time.time;
         timeStart = eTimeS;
         timeDuration = eTimeD;
+        
         state = eFSState.pre;
     }
 
@@ -86,7 +91,6 @@ public class FloatingScore : MonoBehaviour {
 
             Vector2 pos = Utils.Bezier(uC, bezierPts);
             rectTrans.anchorMin = rectTrans.anchorMax = pos;
-
             if (fontSizes != null && fontSizes.Count > 0) {
                 int size = Mathf.RoundToInt(Utils.Bezier(uC, fontSizes));
                 GetComponent<Text>().fontSize = size;

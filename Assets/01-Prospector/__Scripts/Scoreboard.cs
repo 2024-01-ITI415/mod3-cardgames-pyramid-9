@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Scoreboard : MonoBehaviour
 {
     public static Scoreboard S;
-     private static Scoreboard instance;
 
     [Header("Set in Inspector")]
     public GameObject prefabFloatingScore;
@@ -14,21 +14,28 @@ public class Scoreboard : MonoBehaviour
     [Header("Set Dynamically")]
     [SerializeField] private int _score = 0;
     [SerializeField] private string _scoreString;
+
     private Transform canvasTrans;
+    
 
     public int score
     {
-        get { return _score; }
+        get
+        {
+            return (_score);
+        }
         set
         {
             _score = value;
-            scoreString = _score.ToString("N0");
+            _scoreString = _score.ToString();
         }
     }
-
     public string scoreString
     {
-        get { return _scoreString; }
+        get
+        {
+            return (_scoreString);
+        }
         set
         {
             _scoreString = value;
@@ -38,25 +45,14 @@ public class Scoreboard : MonoBehaviour
 
     void Awake()
     {
-        if (S == null)
-        {
+        if (S == null) {
             S = this;
         }
-        else
-        {
-            Debug.LogError("ERROR: Scoreboard.Awake(): S is already set!");
-            Destroy(gameObject); // Destroy duplicate Scoreboard object
-            return;
+        else {
+            Debug.LogError("ERROR: Scoreboard.Awake(): S is already Set!");
         }
-
-        // Find canvas transform dynamically
         canvasTrans = transform.parent;
-        if (canvasTrans == null)
-        {
-            Debug.LogError("ERROR: Scoreboard.Awake(): Canvas transform not found!");
-        }
     }
-
     public void FSCallback(FloatingScore fs)
     {
         score += fs.score;
@@ -64,24 +60,12 @@ public class Scoreboard : MonoBehaviour
 
     public FloatingScore CreateFloatingScore(int amt, List<Vector2> pts)
     {
-        if (prefabFloatingScore == null)
-        {
-            Debug.LogError("ERROR: Scoreboard.CreateFloatingScore(): Prefab not set!");
-            return null;
-        }
-
-        GameObject go = Instantiate(prefabFloatingScore);
+        GameObject go = Instantiate<GameObject>(prefabFloatingScore);
         go.transform.SetParent(canvasTrans);
         FloatingScore fs = go.GetComponent<FloatingScore>();
-        if (fs == null)
-        {
-            Debug.LogError("ERROR: Scoreboard.CreateFloatingScore(): FloatingScore component not found!");
-            return null;
-        }
-
         fs.score = amt;
         fs.reportFinishTo = this.gameObject;
         fs.Init(pts);
-        return fs;
+        return (fs);  
     }
 }
