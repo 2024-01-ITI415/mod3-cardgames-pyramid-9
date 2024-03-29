@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\frogg\\Documents\\GitHub\\mod3-cardgames-pyramid-9\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CE340401-957B-6646-6ED8-68B8C6A7A5FF}|Assembly-CSharp.csproj|c:\\users\\frogg\\documents\\github\\mod3-cardgames-pyramid-9\\assets\\01-prospector\\__scripts\\prospector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE340401-957B-6646-6ED8-68B8C6A7A5FF}|Assembly-CSharp.csproj|solutionrelative:assets\\01-prospector\\__scripts\\prospector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Prospector.cs",
+              "DocumentMoniker": "C:\\Users\\frogg\\Documents\\GitHub\\mod3-cardgames-pyramid-9\\Assets\\01-Prospector\\__Scripts\\Prospector.cs",
+              "RelativeDocumentMoniker": "Assets\\01-Prospector\\__Scripts\\Prospector.cs",
+              "ToolTip": "C:\\Users\\frogg\\Documents\\GitHub\\mod3-cardgames-pyramid-9\\Assets\\01-Prospector\\__Scripts\\Prospector.cs",
+              "RelativeToolTip": "Assets\\01-Prospector\\__Scripts\\Prospector.cs",
+              "ViewState": "AQIAAFcAAAAAAAAAAAAAAHEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-29T00:09:53.56Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
