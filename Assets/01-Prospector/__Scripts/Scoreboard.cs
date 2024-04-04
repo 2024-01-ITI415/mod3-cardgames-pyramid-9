@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Scoreboard : MonoBehaviour
 {
     public static Scoreboard S;
+
     [Header("Set in Inspector")]
     public GameObject prefabFloatingScore;
 
@@ -41,14 +42,14 @@ public class Scoreboard : MonoBehaviour
             GetComponent<Text>().text = _scoreString;
         }
     }
+
     void Awake()
     {
         if (S == null) {
             S = this;
-
         }
         else {
-            Debug.LogError("Ettot: Scoreboard.Awake(): S is already Set!");
+            Debug.LogError("ERROR: Scoreboard.Awake(): S is already Set!");
         }
         canvasTrans = transform.parent;
     }
@@ -65,17 +66,6 @@ public class Scoreboard : MonoBehaviour
         fs.score = amt;
         fs.reportFinishTo = this.gameObject;
         fs.Init(pts);
-        return (fs);
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        return (fs);  
     }
 }
