@@ -2,16 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace pyramidGame{
+    //	An	enum	defines	a	variable	type	with	a	few	prenamed	values	//	a	
+    public	enum eCardState	{	
+    drawpile,	
+    tableau,	
+    target,	
+    discard	
+    }	
 
-public class CardPyramid : Card {	
-    [Header("Set Dynamically: CardPyramid")]	
-    public eCardState state = eCardState.drawpile;	
-    public List<CardPyramid> hiddenBy = new List<CardPyramid>();	
-    public int layoutID;	
-    public SlotDef slotDef;	
+    public	class	CardProspector : Card	{	//	Make	sure	CardProspector	extends	
+    [Header("Set Dynamically: CardProspector")]	
+    //	This	is	how	you	use	the	enum	eCardState	
+    public	eCardState	state	=	eCardState.drawpile;	
+    //	The	hiddenBy	list	stores	which	other	cards	will	keep	this	one	face
+    public	List<CardProspector> hiddenBy =	new	List<CardProspector>();	
+    //	The	layoutID	matches	this	card	to	the	tableau	XML	if	it's	a	tableau
+    public	int	layoutID;	
+    //	The	SlotDef	class	stores	information	pulled	in	from	the	LayoutXML
+    public	SlotDef	slotDef;	
 
-    override public void OnMouseUpAsButton() {	
-        Pyramid.S.CardClicked(this);	
-        base.OnMouseUpAsButton();	
+    //	This	allows	the	card	to	react	to	being	clicked	
+    override	public	void	OnMouseUpAsButton()	{	
+    //	Call	the	CardClicked	method	on	the	Prospector	singleton	
+    Prospector.S.CardClicked(this);	
+    //	Also	call	the	base	class	(Card.cs)	version	of	this	method	
+    base.OnMouseUpAsButton();	//	a	
+    }
     }
 }
