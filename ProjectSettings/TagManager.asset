@@ -42,20 +42,29 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: Row0
-    uniqueID: 1502849699
+    uniqueID: 2629651085
     locked: 0
   - name: Row1
-    uniqueID: 1255338099
+    uniqueID: 3826496339
     locked: 0
   - name: Row2
-    uniqueID: 1342314923
+    uniqueID: 579500581
     locked: 0
   - name: Row3
-    uniqueID: 2158209101
+    uniqueID: 1978558195
     locked: 0
-  - name: Draw
-    uniqueID: 2291051835
+  - name: Row4
+    uniqueID: 1801910571
+    locked: 0
+  - name: Row5
+    uniqueID: 1625285921
+    locked: 0
+  - name: Row6
+    uniqueID: 3456947847
     locked: 0
   - name: Discard
-    uniqueID: 338395643
+    uniqueID: 1968729267
+    locked: 0
+  - name: Draw
+    uniqueID: 2134255567
     locked: 0
