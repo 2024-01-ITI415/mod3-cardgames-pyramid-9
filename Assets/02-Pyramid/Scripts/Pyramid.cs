@@ -414,31 +414,39 @@ public class Pyramid : MonoBehaviour
     // Return true if the two cards are adjacent in rank (A & K wrap around)
     public bool AdjacentRank(CardPyramid c0, CardPyramid c1)
     {
-    // If either card is face-down, it's not adjacent.
-    if (!c0.faceUp || !c1.faceUp) return false;
-    
-    // If one of the cards is a king (rank 13), move it to the waste pile
-    if (c0.rank == 13)
-    {
-        MoveToWaste(c0);
-        return true;
-    }
-    else if (c1.rank == 13)
-    {
-        MoveToWaste(c1);
-        return true;
+        // If either card is face-down or hidden, it's not adjacent.
+        if (!c0.faceUp || !c1.faceUp) return false;
+
+        // If one of the cards is a king (rank 13), move it to the waste pile
+        if (c0.rank == 13)
+        {
+            MoveToWaste(c0);
+            return true;
+        }
+        else if (c1.rank == 13)
+        {
+            MoveToWaste(c1);
+            return true;
+        }
+
+        // If the cards' ranks sum up to 13, move both cards to the waste pile
+        if (Mathf.Abs(c0.rank + c1.rank) == 13)
+        {
+            MoveToWaste(c0);
+            MoveToWaste(c1);
+            return true;
+        }
+
+        // Check for adjacency based on rank
+        if (Mathf.Abs(c0.rank - c1.rank) == 1 || (c0.rank == 1 && c1.rank == 13) || (c0.rank == 13 && c1.rank == 1))
+        {
+            return true;
+        }
+
+        return false;
     }
 
-    // If the cards' ranks sum up to 13, move both cards to the waste pile
-    if (Mathf.Abs(c0.rank + c1.rank) == 13)
-    {
-        MoveToWaste(c0);
-        MoveToWaste(c1);
-        return true;
-    }
-
-    return false;
-    }
+   
 
     // Handle FloatingScore movement
     void FloatingScoreHandler(eScoreEvent evt)
